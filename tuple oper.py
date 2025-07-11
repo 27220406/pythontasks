@@ -1,0 +1,12 @@
+thistuple=("1","2","3","4","5","6","6","3","3")
+duplicatetuple=tuple(thistuple)
+print(duplicatetuple)
+print(len(thistuple))
+index1=thistuple.index('3')
+print(index1)
+x= thistuple.count('6')
+print(x)
+(a,b,*c)= thistuple
+print(a)
+print(b)
+print(c)
