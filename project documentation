@@ -1,0 +1,127 @@
+FACE RECOGNITION APP DOCUMENTATION
+📌 Overview
+This is a Python-based face recognition application using OpenCV’s LBPHFaceRecognizer, integrated with a GUI built in Tkinter. It allows you to:
+1)Collect face data via webcam
+2)Train a face recognition model
+3)Recognize faces in real time
+🔧 DEPENDENCIES
+Make sure the following libraries are installed:
+pip install opencv-python opencv-contrib-python numpy
+📂 Project Structure
+face_recognition_app/
+│
+├── dataset/            # Stores face images per person
+├── trainer.yml         # Trained LBPH model
+├── labels.txt          # Mapping of label IDs to person names
+├── main.py             # Main application script
+📤 Modules and Functions
+1. Face Detection
+Uses OpenCV’s haarcascade_frontalface_default.xml to detect faces in webcam frames.
+
+2. collect_faces()
+Captures 30 grayscale face images from the webcam.
+
+Resizes and equalizes each face image.
+
+Saves them to dataset/<person_name>/.
+
+3. train_model()
+Reads all face images from dataset/.
+
+Assigns numeric labels to each person.
+
+Trains the LBPH face recognizer.
+
+Saves the trained model to trainer.yml.
+
+Saves label mappings to labels.txt.
+
+4. recognize_faces()
+Loads the trained recognizer and label map.
+
+Captures webcam frames.
+
+Detects and recognizes faces.
+
+Displays the name and confidence level on screen.
+
+🧠 Model Used
+LBPH (Local Binary Pattern Histogram)
+It’s effective for small datasets and works well with different lighting conditions.
+
+Parameters tuned:
+
+radius=1
+
+neighbors=8
+
+grid_x=8, grid_y=8
+
+threshold=100.0
+
+💻 GUI Interface (Tkinter)
+Widget	Purpose
+Entry Field	Enter name before collecting faces
+📷 Collect Face	Start face data collection
+🔍 Recognize Face	Run face recognition live
+ESC Key	Exit webcam window
+
+📍 Usage Instructions
+Run the app:
+
+python main.py
+Enter a name (e.g., "John") and click 📷 Collect Face.
+
+Wait until 30 face samples are collected.
+
+Click 🔍 Recognize Face to start recognition.
+
+Press ESC to exit webcam view.
+
+⚠️ Error Handling
+Name is required before collecting face data.
+
+Webcam access is checked.
+
+Recognizer won't run if trainer.yml or labels.txt is missing.
+# 🧠 Face Recognition App using OpenCV & Tkinter
+
+A Python-based face recognition app using OpenCV's LBPHFaceRecognizer with a graphical interface built in Tkinter. This app allows you to:
+
+- 📸 Collect face data
+- 🧪 Train a recognition model
+- 🔍 Recognize faces in real-time via webcam
+
+---
+
+## 📁 Project Structure
+
+face_recognition_app/
+│
+├── dataset/ # Stores face images per person
+├── trainer.yml # Trained face recognizer model
+├── labels.txt # ID-to-name mapping
+├── main.py # Main application script
+
+yaml
+Copy
+Edit
+
+---
+
+## 🔧 Requirements
+
+Install dependencies before running:
+pip install opencv-python opencv-contrib-python numpy
+🚀 How to Use
+Run the app:
+python main.py
+Enter your name in the field and click 📷 Collect Face.
+
+The webcam will capture 30 face samples and store them in dataset/.
+
+Once data collection is done, the model will be trained automatically.
+
+Click 🔍 Recognize Face to test recognition in real-time.
+
+Press ESC to exit webcam view.
