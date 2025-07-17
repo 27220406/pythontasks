@@ -1,5 +1,5 @@
 my_list = [] 
-n = int(input("Number of items you want to add? "))
+n = int(input("Number of items you want to add in list? "))
 
 for i in range(n):
     item = int(input(f"Enter item {i+1}: "))  
